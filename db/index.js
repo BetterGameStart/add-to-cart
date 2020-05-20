@@ -50,12 +50,30 @@ const save = (game) => {
   });
 };
 
+const addGame = (game, cb) => {
+  Game.create(game, (err, result) => {
+    cb(err, result);
+  });
+};
+
 const getGame = (id, cb) => {
   Game.find({ id }, (err, game) => {
     if (err) {
       return cb(err, null);
     }
     return cb(null, game);
+  });
+};
+
+const updateGame = (gameId, game, cb) => {
+  Game.updateMany({ gameId }, game, (err, result) => {
+    cb(err, result);
+  });
+};
+
+const deleteGame = (gameId, cb) => {
+  Game.deleteOne({ gameId }, (err, result) => {
+    cb(err, result);
   });
 };
 
@@ -69,6 +87,9 @@ const deleteAll = () => {
 
 module.exports = {
   save,
+  addGame,
   getGame,
+  updateGame,
+  deleteGame,
   deleteAll,
 };

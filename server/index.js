@@ -11,7 +11,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use('/games/:id', express.static(__dirname + '/../client/dist'));
 
-//TO-DO: api get router
+app.post('/cartapi/', (req, res) => {
+  // Add a new game using the values in req.body
+  res.send('POST request to homepage')
+});
+
 app.get('/cartapi/:id', (req, res) => {
   const id = Number(path.basename(req.url));
   db.getGame(id, (err, result) => {
@@ -23,6 +27,16 @@ app.get('/cartapi/:id', (req, res) => {
       res.end();
     }
   });
+});
+
+app.put('/cartapi/:id', (req, res) => {
+  // Update the game with gameId = id using the values in req.body
+  res.send('PUT request to homepage')
+});
+
+app.delete('/cartapi/:id', (req, res) => {
+  // TODO: Delete the game with gameId = id
+  res.send('DELETE request to homepage')
 });
 
 

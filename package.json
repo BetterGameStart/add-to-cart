@@ -9,7 +9,7 @@
   },
   "scripts": {
     "start": "nodemon server/index.js",
-    "build-d": "webpack --config webpack.dev.js",
+    "build-d": "webpack --config webpack.dev.js --watch",
     "build-p": "webpack --config webpack.prod.js",
     "seed": "node db/seed.js",
     "test": "jest --watchAll"

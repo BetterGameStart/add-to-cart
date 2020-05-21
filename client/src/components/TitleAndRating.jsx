@@ -23,32 +23,32 @@ class TitleAndRating extends React.Component {
   esrb(rating) {
     if(rating == 1) {
       return (
-        "https://addtocartbucket.s3-us-west-1.amazonaws.com/ESRB/E.png"
+        "https://d12ocfwr9ow4yi.cloudfront.net/ESRB/E.png"
       )
     }
     if(rating == 2) {
       return (
-        "https://addtocartbucket.s3-us-west-1.amazonaws.com/ESRB/E10%2B.png"
+        "https://d12ocfwr9ow4yi.cloudfront.net/ESRB/E10%2B.png"
       )
     }
     if(rating == 3) {
       return (
-        "https://addtocartbucket.s3-us-west-1.amazonaws.com/ESRB/T.png"
+        "https://d12ocfwr9ow4yi.cloudfront.net/ESRB/T.png"
       )
     }
     if(rating == 4) {
       return (
-        "https://addtocartbucket.s3-us-west-1.amazonaws.com/ESRB/M.png"
+        "https://d12ocfwr9ow4yi.cloudfront.net/ESRB/M.png"
       )
     }
     if(rating == 5) {
       return (
-        "https://addtocartbucket.s3-us-west-1.amazonaws.com/ESRB/A.png"
+        "https://d12ocfwr9ow4yi.cloudfront.net/ESRB/A.png"
       )
     }
     if(rating == 6) {
       return (
-        "https://addtocartbucket.s3-us-west-1.amazonaws.com/ESRB/RP.png"
+        "https://d12ocfwr9ow4yi.cloudfront.net/ESRB/RP.png"
       )
     }
   }

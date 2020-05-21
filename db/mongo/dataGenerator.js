@@ -5,7 +5,7 @@ const data = [];
 const fillData = () => {
   for (var i = 1; i <= 100; i+=1) {
     const gameObj = {
-      id: i,
+      id: i, // This line may not be needed depending on whether the db autoincrements an id field.
       gameId: i,
       title: faker.fake('{{company.catchPhraseAdjective}} {{company.bsNoun}}'),
       publisher: faker.fake('{{company.companyName}}'),

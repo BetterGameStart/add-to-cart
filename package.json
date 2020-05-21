@@ -11,7 +11,7 @@
     "start": "nodemon server/index.js",
     "build-d": "webpack --config webpack.dev.js --watch",
     "build-p": "webpack --config webpack.prod.js",
-    "seed": "node db/seed.js",
+    "seed": "node db/mongo/seed.js",
     "test": "jest --watchAll"
   },
   "dependencies": {

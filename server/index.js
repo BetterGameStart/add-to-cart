@@ -11,16 +11,45 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use('/games/:id', express.static(__dirname + '/../client/dist'));
 
-//TO-DO: api get router
+app.post('/cartapi/', (req, res) => {
+  db.addGame(req.body, (err, result) => {
+    if (err) {
+      res.status(500).send('Error creating new record.');
+    } else {
+      res.status(201).send(result);
+    }
+  });
+});
+
 app.get('/cartapi/:id', (req, res) => {
   const id = Number(path.basename(req.url));
   db.getGame(id, (err, result) => {
     if(err) {
-      res.sendStatus(500).send(err);
-      res.end();
+      res.status(500).send('Could not find that product.');
     } else {
-      res.send(result);
-      res.end();
+      res.status(200).send(result);
+    }
+  });
+});
+
+app.put('/cartapi/:id', (req, res) => {
+  const id = Number(path.basename(req.url));
+  db.updateGame(id, req.body, (err, result) => {
+    if (err) {
+      res.status(500).send('Update failed.');
+    } else {
+      res.status(200).send(result);
+    }
+  });
+});
+
+app.delete('/cartapi/:id', (req, res) => {
+  const id = Number(path.basename(req.url));
+  db.deleteGame(id, (err, result) => {
+    if (err) {
+      res.status(500).send('Unable to delete.');
+    } else {
+      res.status(200).send(result);
     }
   });
 });

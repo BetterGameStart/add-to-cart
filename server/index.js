@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
-const db = require('../db/index.js');
+const db = require('../db/mongo/index.js');
 
 const app = express();
 const PORT = 3001;

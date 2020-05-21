@@ -66,6 +66,7 @@ The REST API for this service is outlined below.
 `POST /cartapi/`
 
 Expects a JSON object in the request body with the following properties:
+
     {
       "id": Integer, // Example => 101
       "gameId": Integer, // 101
@@ -146,6 +147,7 @@ Expects a JSON object in the request body with the following properties:
 `PUT /cartapi/{gameId}`
 
 Expects a JSON object as the request body with any properties that should be updated on game {gameId}.
+
     {
       "title": String, // Example => "New Game Title"
       "newPrice": Number, // 73

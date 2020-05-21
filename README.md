@@ -6,9 +6,9 @@
 
   - https://github.com/Legolas-SDC/Carousel-Images
   - https://github.com/Legolas-SDC/Product-Description
-  <!-- - https://github.com/Team-Aragorn/Recommended-Services -->
   - https://github.com/Legolas-SDC/reviews
   - https://github.com/Team-Aragorn/addToCart-proxy
+  <!-- - https://github.com/Team-Aragorn/Recommended-Services -->
 
 ## Table of Contents
 
@@ -17,7 +17,7 @@
 1. [Development](#development)
 1. [How to Start](#how-to-start)
 1. [REST API Docs](#rest-api)
-  i. Games
+  * Games
     * [POST](#add-a-new-game)
     * [GET](#get-a-game-by-gameid)
     * [PUT](#update-a-game-by-gameid)

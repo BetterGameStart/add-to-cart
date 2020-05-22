@@ -2,11 +2,13 @@ const fs = require('fs');
 const faker = require('faker');
 
 var start = new Date().getTime();
-const writeData = fs.createWriteStream('data.csv');
+const writeData = fs.createWriteStream('./data.csv', {
+  flags: 'w'
+});
 writeData.write('gameId,title,publisher,reviewScore,reviewCount,ageRating,newPrice,usedPrice,digitalPrice,storeLocation,inStock\n', 'utf8');
 
 function writeTenMillionRecords(writer, encoding, callback) {
-  let i = 10;
+  let i = 10000000;
   let id = 0;
   function write() {
     let ok = true;

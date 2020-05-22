@@ -1,15 +1,14 @@
-require('dotenv').config();
-const { Pool, Client } = require('pg');
+require('dotenv').config({path: '../../.env'});
+const { Sequelize } = require('sequelize');
+const db = new Sequelize(`postgres://${process.env.DB_USER}:${process.env.DB_PASS}@localhost:5432/cartgames`);
 
-const pool = new Pool({
-  host: process.env.DB_HOST,
-  port: process.env.DB_PORT,
-  database: process.env.DB_NAME,
-  user: process.env.DB_USER,
-  password: process.env.DB_PASS,
-});
+const connection = async () => {
+  try {
+    await db.authenticate();
+    console.log('Connection has been established successfully.');
+  } catch (error) {
+    console.error('Unable to connect to the database:', error);
+  }
+}
 
-pool.query('SELECT NOW()', (err, res) => {
-  console.log(err, res)
-  pool.end()
-})
+connection();

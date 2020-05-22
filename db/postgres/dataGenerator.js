@@ -1,32 +1,33 @@
 const fs = require('fs');
 const faker = require('faker');
 
+var start = new Date().getTime();
 const writeData = fs.createWriteStream('data.csv');
 writeData.write('gameId,title,publisher,reviewScore,reviewCount,ageRating,newPrice,usedPrice,digitalPrice,storeLocation,inStock\n', 'utf8');
 
 function writeTenMillionRecords(writer, encoding, callback) {
-  let i = 10000000;
+  let i = 10;
   let id = 0;
   function write() {
     let ok = true;
     do {
       i -= 1;
       id += 1;
-      const g = {
-        gameId: id,
-        title: faker.fake('{{company.catchPhraseAdjective}} {{company.bsNoun}}'),
-        publisher: faker.fake('{{company.companyName}}'),
-        reviewScore: Math.ceil(Math.random() * 5),
-        reviewCount: Math.ceil(Math.random() * 5000),
-        ageRating: Math.ceil(Math.random() * 6), //E, E10+, T, M, A, RP
-        newPrice: 60,
-        usedPrice: Math.ceil(Math.random() * 55),
-        digitalPrice: Math.floor(Math.random() * (60 - 45 + 1) + 45),
-        storeLocation: faker.fake('{{address.streetAddress}} {{address.streetName}} {{address.city}}, {{address.state}}'),
-        inStock: faker.random.boolean(),
-      };
-      const gVals = Object.values(g);
-      const data = gVals.join(', ') + '\n';
+
+      const gameId = id;
+      const title = faker.fake('{{company.catchPhraseAdjective}} {{company.bsNoun}}');
+      const publisher = faker.fake('{{company.companyName}}');
+      const reviewScore = Math.ceil(Math.random() * 5);
+      const reviewCount = Math.ceil(Math.random() * 5000);
+      const ageRating = Math.ceil(Math.random() * 6); //E, E10+, T, M, A, RP
+      const newPrice = 60;
+      const usedPrice = Math.ceil(Math.random() * 55);
+      const digitalPrice = Math.floor(Math.random() * (60 - 45 + 1) + 45);
+      const storeLocation = faker.fake('{{address.streetAddress}} {{address.streetName}} {{address.city}}, {{address.state}}');
+      const inStock = faker.random.boolean();
+
+      const data = `${gameId}, "${title}", "${publisher}", ${reviewScore}, ${reviewCount}, ${ageRating}, ${newPrice}, ${usedPrice}, ${digitalPrice}, "${storeLocation}", ${inStock}\n`;
+
       if (i === 0) {
         writer.write(data, encoding, callback);
       } else {
@@ -46,6 +47,8 @@ function writeTenMillionRecords(writer, encoding, callback) {
 
 writeTenMillionRecords(writeData, 'utf-8', () => {
   writeData.end();
+  const elapsed = new Date().getTime() - start;
+  console.log('All finished! Duration (ms): ', elapsed);
 });
 
 

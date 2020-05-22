@@ -68,9 +68,9 @@ writeTenMillionRecords(writeData, 'utf-8', () => {
 //   newPrice numeric CHECK (newPrice > 0),
 //   usedPrice numeric CHECK (newPrice > usedPrice AND usedPrice > 0),
 //   digitalPrice numeric CHECK (digitalPrice > 0),
-//   storeLocation varchar(80),
+//   storeLocation varchar(160),
 //   inStock boolean
 // );
 // // To copy the contents of the csv into the games table
 // COPY games(gameId, title, publisher, reviewScore, reviewCount, ageRating, newPrice, usedPrice, digitalPrice, storeLocation, inStock)
-// FROM '/home/geophreigh/Documents/Hack-Reactor/sdc/add-to-cart/db/postgres/data-test.csv' DELIMITER ',' CSV HEADER;
+// FROM '/home/geophreigh/Documents/Hack-Reactor/sdc/add-to-cart/db/postgres/data.csv' DELIMITER ',' CSV HEADER;

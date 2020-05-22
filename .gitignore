@@ -28,4 +28,4 @@ build/
 client/dist/bundle.js
 
 # Generated data files
-*.csv
+db/*/*.csv

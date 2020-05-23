@@ -5,7 +5,7 @@ var start = new Date().getTime();
 const writeData = fs.createWriteStream('./data.csv', {
   flags: 'w'
 });
-writeData.write('gameId,title,publisher,reviewScore,reviewCount,ageRating,newPrice,usedPrice,digitalPrice,storeLocation,inStock\n', 'utf8');
+writeData.write('gameId|title|publisher|reviewScore|reviewCount|ageRating|newPrice|usedPrice|digitalPrice|storeLocation|inStock\n', 'utf8');
 
 function writeTenMillionRecords(writer, encoding, callback) {
   let i = 10000000;
@@ -28,7 +28,7 @@ function writeTenMillionRecords(writer, encoding, callback) {
       const storeLocation = faker.fake('{{address.streetAddress}} {{address.streetName}} {{address.city}}, {{address.state}}');
       const inStock = faker.random.boolean();
 
-      const data = `${gameId}, "${title}", "${publisher}", ${reviewScore}, ${reviewCount}, ${ageRating}, ${newPrice}, ${usedPrice}, ${digitalPrice}, "${storeLocation}", ${inStock}\n`;
+      const data = `${gameId}|${title}|${publisher}|${reviewScore}|${reviewCount}|${ageRating}|${newPrice}|${usedPrice}|${digitalPrice}|${storeLocation}|${inStock}\n`;
 
       if (i === 0) {
         writer.write(data, encoding, callback);

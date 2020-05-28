@@ -39,6 +39,15 @@ const updateGame = (gameId, game, cb) => {
 
 const deleteGame = (gameId, cb) => {
   // Delete a single record from the games table by gameId
+  pool.connect((err, client, done) => {
+    const text = 'DELETE FROM games WHERE "gameId" = $1';
+    const values = [gameId];
+    if (err) throw err;
+    client.query(text, values, (err, res) => {
+      done();
+      cb(err, res);
+    })
+  })
 };
 
 const deleteAll = () => {

@@ -50,9 +50,20 @@ const deleteGame = (gameId, cb) => {
   })
 };
 
-const deleteAll = () => {
-  // Delete all the records in the games table
-};
+// I don't really want to enable this capability. I want truncating the table to be a very intentional choice.
+// const deleteAll = () => {
+//   // Delete all the records in the games table
+//   pool.connect((err, client, done) => {
+//     const text = 'TRUNCATE TABLE games';
+//     const values = [];
+//     if (err) throw err;
+//     client.query(text, values, (err, res) => {
+//       done();
+//     })
+//   })
+// };
+
+deleteAll();
 
 module.exports = {
   addGame,

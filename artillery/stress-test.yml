@@ -1,0 +1,50 @@
+config:
+  target: https://127.0.0.1:3001
+  http:
+    pool: 10
+  processor: ./stress-functions.js
+  phases:
+    - duration: 300
+      arrivalRate: 1
+      name: "Warm up the app - 1 RPS"
+    - duration: 120
+      arrivalRate: 1
+      rampTo: 10
+      name: "Ramp to 10 RPS"
+    - duration: 300
+      arrivalRate: 10
+      name: "Sustain 10 RPS"
+    - duration: 120
+      arrivalRate: 1
+      rampTo: 100
+      name: "Ramp to 100 RPS"
+    - duration: 300
+      arrivalRate: 100
+      name: "Sustain 100 RPS"
+    - duration: 120
+      arrivalRate: 1
+      rampTo: 1000
+      name: "Ramp to 1k RPS"
+    - duration: 300
+      arrivalRate: 1000
+      name: "Sustain 1k RPS"
+scenarios:
+  - name: "Get game from last 1/4 of dataset"
+    weight: 6
+    flow:
+      - function: "generateHighId"
+      - get:
+          url: "/cartapi/{{ id }}"
+  - name: "Get game from first 3/4 of dataset"
+    weight: 2
+    flow:
+      - function: "generateLowId"
+      - get:
+          url: "/cartapi/{{ id }}"
+  - name: "Add new game"
+    weight: 2
+    flow:
+      - function: "generateNewGame"
+      - post:
+          url: "/cartapi"
+          json: {{ reqBod }}

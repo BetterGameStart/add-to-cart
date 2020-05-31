@@ -1,31 +1,31 @@
 config:
-  target: https://127.0.0.1:3001
+  target: http://127.0.0.1:3001
   http:
-    pool: 10
+    pool: 100
   processor: ./stress-functions.js
   phases:
-    - duration: 300
+    - duration: 60
       arrivalRate: 1
       name: "Warm up the app - 1 RPS"
-    - duration: 120
+    - duration: 30
       arrivalRate: 1
       rampTo: 10
       name: "Ramp to 10 RPS"
-    - duration: 300
+    - duration: 60
       arrivalRate: 10
       name: "Sustain 10 RPS"
-    - duration: 120
+    - duration: 30
       arrivalRate: 1
       rampTo: 100
       name: "Ramp to 100 RPS"
-    - duration: 300
+    - duration: 60
       arrivalRate: 100
       name: "Sustain 100 RPS"
-    - duration: 120
+    - duration: 30
       arrivalRate: 1
       rampTo: 1000
       name: "Ramp to 1k RPS"
-    - duration: 300
+    - duration: 60
       arrivalRate: 1000
       name: "Sustain 1k RPS"
 scenarios:
@@ -47,4 +47,15 @@ scenarios:
       - function: "generateNewGame"
       - post:
           url: "/cartapi"
-          json: {{ reqBod }}
+          json:
+            gameId: "{{ gameId }}"
+            title: "{{ title }}"
+            publisher: "{{ publisher }}"
+            reviewScore: "{{ reviewScore }}"
+            reviewCount: "{{ reviewCount }}"
+            ageRating: "{{ ageRating }}"
+            newPrice: "{{ newPrice }}"
+            usedPrice: "{{ usedPrice }}"
+            digitalPrice: "{{ digitalPrice }}"
+            storeLocation: "{{ storeLocation }}"
+            inStock: "{{ inStock }}"

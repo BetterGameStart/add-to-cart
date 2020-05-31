@@ -1,0 +1,29 @@
+config:
+  target: http://127.0.0.1:3001
+  http:
+    pool: 100
+  processor: ./stress-functions.js
+  phases:
+    - duration: 60
+      arrivalRate: 10
+      name: '1000 RPS'
+scenarios:
+  - name: "Add new game"
+    flow:
+      - loop:
+        - function: "generateNewGame"
+        - post:
+            url: "/cartapi"
+            json:
+              gameId: "{{ gameId }}"
+              title: "{{ title }}"
+              publisher: "{{ publisher }}"
+              reviewScore: "{{ reviewScore }}"
+              reviewCount: "{{ reviewCount }}"
+              ageRating: "{{ ageRating }}"
+              newPrice: "{{ newPrice }}"
+              usedPrice: "{{ usedPrice }}"
+              digitalPrice: "{{ digitalPrice }}"
+              storeLocation: "{{ storeLocation }}"
+              inStock: "{{ inStock }}"
+        count: 100

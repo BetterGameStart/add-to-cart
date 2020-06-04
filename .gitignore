@@ -31,5 +31,7 @@ client/dist/bundle.js
 db/*/*.csv
 db/*.csv
 
-# New Relic config files
-newrelic.js
+# New Relic logs
+newrelic_*
+
+artillery/

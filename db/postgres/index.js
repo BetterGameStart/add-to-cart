@@ -28,29 +28,20 @@ const getGame = (gameId, cb) => {
 
 const updateGame = (gameId, game, cb) => {
   // Update an existing record in the games table by gameId
-  pool.connect((err, client, done) => {
-    const { gameId, title, publisher, reviewScore, reviewCount, ageRating, newPrice, usedPrice, digitalPrice, storeLocation, inStock } = game;
-    const text = 'UPDATE games SET "title" = $2, "publisher" = $3, "reviewScore" = $4, "reviewCount" = $5, "ageRating" = $6, "newPrice" = $7, "usedPrice" = $8, "digitalPrice" = $9, "storeLocation" = $10, "inStock" = $11 WHERE "gameId" = $1';
-    const values = [gameId, title, publisher, reviewScore, reviewCount, ageRating, newPrice, usedPrice, digitalPrice, storeLocation, inStock];
-    if (err) throw err;
-    client.query(text, values, (err, res) => {
-      console.log('Error: ', err, '\nResults: ', res);
-      done();
-      cb(err, res);
-    })
+  const { gameId, title, publisher, reviewScore, reviewCount, ageRating, newPrice, usedPrice, digitalPrice, storeLocation, inStock } = game;
+  const text = 'UPDATE games SET "title" = $2, "publisher" = $3, "reviewScore" = $4, "reviewCount" = $5, "ageRating" = $6, "newPrice" = $7, "usedPrice" = $8, "digitalPrice" = $9, "storeLocation" = $10, "inStock" = $11 WHERE "gameId" = $1';
+  const values = [gameId, title, publisher, reviewScore, reviewCount, ageRating, newPrice, usedPrice, digitalPrice, storeLocation, inStock];
+  pool.query(text, values, (err, res) => {
+    cb(err, res);
   })
 };
 
 const deleteGame = (gameId, cb) => {
   // Delete a single record from the games table by gameId
-  pool.connect((err, client, done) => {
-    const text = 'DELETE FROM games WHERE "gameId" = $1';
-    const values = [gameId];
-    if (err) throw err;
-    client.query(text, values, (err, res) => {
-      done();
-      cb(err, res);
-    })
+  const text = 'DELETE FROM games WHERE "gameId" = $1';
+  const values = [gameId];
+  pool.query(text, values, (err, res) => {
+    cb(err, res);
   })
 };
 

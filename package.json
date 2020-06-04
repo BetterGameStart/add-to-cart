@@ -12,7 +12,8 @@
     "build-p": "webpack --config webpack.prod.js",
     "generate-data": "node db/dataGenerator.js",
     "seed": "node db/mongo/seed.js",
-    "start": "nodemon server/index.js",
+    "start": "node server/index.js",
+    "start-dev": "nodemon server/index.js",
     "test": "jest --watchAll"
   },
   "dependencies": {

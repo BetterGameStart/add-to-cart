@@ -1,14 +1,13 @@
 # GameGo
 
-> A video game ecommerce hub.
+> A video game ecommerce hub that displays video game pricing/availability based on location. 
 
 ## Related Projects
 
-  - https://github.com/Legolas-SDC/Carousel-Images
-  - https://github.com/Legolas-SDC/Product-Description
-  - https://github.com/Legolas-SDC/reviews
-  - https://github.com/Team-Aragorn/addToCart-proxy
-  <!-- - https://github.com/Team-Aragorn/Recommended-Services -->
+  - https://github.com/BetterGameStart/Carousel-Images
+  - https://github.com/BetterGameStart/Product-Description
+  - https://github.com/BetterGameStart/reviews
+  - https://github.com/BetterGameStart/proxy-server-jm
 
 ## Table of Contents
 

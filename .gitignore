@@ -30,3 +30,8 @@ client/dist/bundle.js
 # Generated data files
 db/*/*.csv
 db/*.csv
+
+# New Relic logs
+newrelic_*
+
+artillery/

@@ -13,7 +13,6 @@
 
 1. [Requirements](#requirements)
 1. [Development](#development)
-1. [How to Start](#how-to-start)
 1. [REST API Docs](#rest-api)
   * Games
     * [POST](#add-a-new-game)

@@ -11,7 +11,6 @@
 
 ## Table of Contents
 
-1. [Usage](#Usage)
 1. [Requirements](#requirements)
 1. [Development](#development)
 1. [How to Start](#how-to-start)
@@ -22,15 +21,12 @@
     * [PUT](#update-a-game-by-gameid)
     * [DELETE](#delete-a-game-by-gameid)
 
-## Usage
-
-> Some usage instructions
-
 ## Requirements
 
 An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
 
-- Node 10.15.3
+- Node 10.20.1
+- PostgreSQL v12
 
 ## Development
 
@@ -42,20 +38,6 @@ From within the root directory:
 npm install -g webpack
 npm install
 ```
-
-You will also need to install and setup mongodb for this app.
-
-You will also need to seed your database, to seed the DB open a terminal in the addToCart-service directory and run the following command:
-- npm run-script seed
-After you get a message saying it has connect to MongoDB press CTRL + C. Your data should be in the DB now.
-
-
-## How to Start
-cd to addToCart-service directory
-in multiple terminals run the following commands, one command per terminal:
-- (sudo) mongo OR (sudo) mongod
-- npm run-script build
-- npm start
 
 # REST API
 The REST API for this service is outlined below.

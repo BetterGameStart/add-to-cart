@@ -2,6 +2,9 @@
 
 > A video game ecommerce hub that displays video game pricing/availability based on location. 
 
+
+![Add to cart module.](https://geophray.s3-us-west-2.amazonaws.com/public/add-to-cart.png "Product Info / Add to Cart")
+
 ## Related Projects
 
   - https://github.com/BetterGameStart/Carousel-Images

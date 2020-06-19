@@ -161,7 +161,7 @@ Expects a JSON object as the request body with any properties that should be upd
 
 ### Response
     HTTP/1.1 200 OK
-    Date: Thu, 21 May 2020 02:40:38 GMT
+    Date: Thu, 21 May 2020 02:40:38 GMT 
     Status: 200 OK
     Connection: keep-alive
     Content-Type: application/json; charset=utf-8
